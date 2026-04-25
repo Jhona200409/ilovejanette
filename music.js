@@ -1,6 +1,6 @@
-// Music Player - La Incondicional (Luis Miguel)
+// Music Player - Voy a Apagar La Luz / Contigo Aprendí (Luis Miguel)
 (function () {
-  var isPlaying = false;
+  var isPlaying = true; // Arranca reproduciendo
   var player = null;
   var btn = document.getElementById('music-btn');
   var icon = document.getElementById('music-icon');
@@ -13,8 +13,13 @@
   window.onYouTubeIframeAPIReady = function () {
     player = new YT.Player('yt-iframe', {
       events: {
-        onReady: function () {
-          // Listo para reproducir al hacer click
+        onReady: function (e) {
+          // El iframe ya arrancó muted+autoplay; ahora desmutamos
+          e.target.unMute();
+          e.target.setVolume(80);
+          // Refleja estado "playing" en el botón
+          btn.classList.add('playing');
+          icon.textContent = '♬';
         },
         onStateChange: function (e) {
           if (e.data === YT.PlayerState.ENDED) {
@@ -25,6 +30,7 @@
     });
   };
 
+  // El botón solo pausa / reanuda
   btn.addEventListener('click', function () {
     if (!player) return;
     if (isPlaying) {
