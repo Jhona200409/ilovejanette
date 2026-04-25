@@ -21,11 +21,18 @@ body{
 	height: 2000px;  
 }
 
-#perspectiva{
-	position:fixed;
-	top:200px;
-	left:50%;
+#escala-wrapper {
+	position: fixed;
+	top: 200px;
+	left: 50%;
 	margin-left: -200px;
+	width: 400px;
+	z-index: 50;
+	transform-origin: top center;
+}
+
+#perspectiva{
+	position:relative;
 	perspective:1000;
 }
 
@@ -256,50 +263,49 @@ body{
 
 /* ===== Responsividad Móvil ===== */
 
-/* El #mobile-wrap es solo un div neutro en desktop */
-#mobile-wrap {
-  display: contents;
-}
-
-/* En móvil, redefinimos la posición del sobre para que quede centrado */
 @media screen and (max-width: 540px) {
-  #perspectiva {
-    /* Centramos usando left:50% y translateX(-50%) cancelando el margin-left fijo */
-    top: 80px !important;
-    left: 50% !important;
-    margin-left: 0 !important;
-    transform: translateX(-50%) scale(0.88) !important;
-    transform-origin: center top !important;
+  #escala-wrapper {
+    transform: scale(0.85);
+    top: 150px;
+  }
+  
+  /* Hacer el botón de música más grande y céntrico */
+  #music-btn {
+    bottom: 30px;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 14px 24px 14px 20px;
+    border-radius: 50px;
+  }
+  #music-btn:hover {
+    transform: translateX(50%) scale(1.05);
+  }
+  #music-label {
+    font-size: 0.95em;
+  }
+  #music-icon {
+    font-size: 1.8em;
   }
 }
 
 @media screen and (max-width: 430px) {
-  #perspectiva {
-    top: 60px !important;
-    left: 50% !important;
-    margin-left: 0 !important;
-    transform: translateX(-50%) scale(0.80) !important;
-    transform-origin: center top !important;
+  #escala-wrapper {
+    transform: scale(0.75);
+    top: 120px;
   }
 }
 
 @media screen and (max-width: 390px) {
-  #perspectiva {
-    top: 50px !important;
-    left: 50% !important;
-    margin-left: 0 !important;
-    transform: translateX(-50%) scale(0.73) !important;
-    transform-origin: center top !important;
+  #escala-wrapper {
+    transform: scale(0.68);
+    top: 100px;
   }
 }
 
 @media screen and (max-width: 360px) {
-  #perspectiva {
-    top: 40px !important;
-    left: 50% !important;
-    margin-left: 0 !important;
-    transform: translateX(-50%) scale(0.67) !important;
-    transform-origin: center top !important;
+  #escala-wrapper {
+    transform: scale(0.60);
+    top: 90px;
   }
 }
 
