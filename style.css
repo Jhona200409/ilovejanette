@@ -168,3 +168,53 @@ body{
 	line-height:1.2em;
 	padding:10px 10px 0 0;
 }
+
+/* ===== Responsividad Móvil ===== */
+
+/* El #mobile-wrap es solo un div neutro en desktop */
+#mobile-wrap {
+  display: contents;
+}
+
+/* En móvil, redefinimos la posición del sobre para que quede centrado */
+@media screen and (max-width: 540px) {
+  #perspectiva {
+    /* Centramos usando left:50% y translateX(-50%) cancelando el margin-left fijo */
+    top: 80px !important;
+    left: 50% !important;
+    margin-left: 0 !important;
+    transform: translateX(-50%) scale(0.88) !important;
+    transform-origin: center top !important;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  #perspectiva {
+    top: 60px !important;
+    left: 50% !important;
+    margin-left: 0 !important;
+    transform: translateX(-50%) scale(0.80) !important;
+    transform-origin: center top !important;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  #perspectiva {
+    top: 50px !important;
+    left: 50% !important;
+    margin-left: 0 !important;
+    transform: translateX(-50%) scale(0.73) !important;
+    transform-origin: center top !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #perspectiva {
+    top: 40px !important;
+    left: 50% !important;
+    margin-left: 0 !important;
+    transform: translateX(-50%) scale(0.67) !important;
+    transform-origin: center top !important;
+  }
+}
+
